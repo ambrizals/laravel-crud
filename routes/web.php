@@ -12,10 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-Route::resource('jasa','jasaController');
+    return view('home');
+})->name('home');
 
+Route::resource('masterJasa','jasaController');
+Route::get('jasa','listController@index')->name('jasa.index');
+Route::get('jasa/{id}','listController@show')->name('jasa.show');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

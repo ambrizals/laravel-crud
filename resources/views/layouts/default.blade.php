@@ -17,8 +17,11 @@
       <h1 class="display-4 text-center">@yield('title')</h1>
     </div>
   	<div class="container">
+      @if (session('messages'))
+        <div class="alert alert-success col-md-12 mt-4" role="alert">{{ session('messages') }}</div>
+      @endif
 	  	@yield('content')
-	</div>
+    </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     @include('includes.footer_script')
